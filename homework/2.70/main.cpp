@@ -14,17 +14,10 @@ int fits_bits(int x, int n)
 {
 	unsigned w = sizeof(int)<<3;
 	// 当x为正数时全为0,负数时全为1。
-	unsigned signed_bit = (int)(x & ~((unsigned)0b1 << (w-2))) >> (w - 1);
+	unsigned signed_bit = (int)(x & (1 << (w-1))) >> (w-1);
 	unsigned source_code = (~x & signed_bit) | (x & ~signed_bit);
-	unsigned mask = 0b1 << (n - 1);
-	mask = mask >> 1;
-	// 填满1的低位
-	mask |= mask >> 16;
-	mask |= mask >> 8;
-	mask |= mask >> 4;
-	mask |= mask >> 2;
-	mask |= mask >> 1;
-	mask = ~mask;
+	unsigned mask = 0 - 1;
+	mask = mask << (n-1);
 	// 若有为1的位，说明不能表示为n位补码
 	unsigned result = !(source_code & mask);
 
