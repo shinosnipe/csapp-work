@@ -10,23 +10,6 @@
 #include "gtest/gtest.h"
 
 
-/*
-int fits_bits(int x, int n)
-{
-	unsigned w = sizeof(int)<<3;
-	unsigned mask = 0 - 1;
-	mask = mask >> (w-n);
-	mask = ~mask;
-	int result = !(x & mask);
-	print2bit(mask);
-	print2bit(x);
-	print2bit(result);
-
-	return result;
-}
-*/
-
-
 int fits_bits(int x, int n)
 {
 	unsigned w = sizeof(int)<<3;
