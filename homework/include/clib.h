@@ -121,7 +121,29 @@ void print2bit(int x)
 {
 	char s[40] = {};
 	itoa(x, s);
-	printf("%s\n", s);
+	int i = 0;
+	printf("%c", s[i]);
+	for (i = 1; s[i] != '\0'; i++)
+	{
+		if (i%4 == 0)
+		{
+			printf(" ");
+		}
+		if (i%8 == 0)
+		{
+			printf(" ");
+		}
+		if (i%16 == 0)
+		{
+			printf(" ");
+		}
+		if (i%32 == 0)
+		{
+			printf(" ");
+		}
+		printf("%c", s[i]);
+	}
+	printf("\n");
 }
 
 
