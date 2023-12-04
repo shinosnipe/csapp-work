@@ -27,6 +27,7 @@ typedef unsigned char *byte_pointer;
 void itoa(int, char[]);
 void reverse(char[]);
 void ltoa(long, char[]);
+void print2bitl(long x);
 
 
 /*******************************************************************************
@@ -80,6 +81,36 @@ void ltoa(long n, char s[])
 	itoa(n, ctmp);
 	itoa(n>>(sizeof(int)<<3), s);
 	strcat(s, ctmp);
+}
+
+
+void print2bitl(long x)
+{
+	char s[80] = {};
+	ltoa(x, s);
+	int i = 0;
+	printf("%c", s[i]);
+	for (i = 1; s[i] != '\0'; i++)
+	{
+		if (i%4 == 0)
+		{
+			printf(" ");
+		}
+		if (i%8 == 0)
+		{
+			printf(" ");
+		}
+		if (i%16 == 0)
+		{
+			printf(" ");
+		}
+		if (i%32 == 0)
+		{
+			printf(" ");
+		}
+		printf("%c", s[i]);
+	}
+	printf("\n");
 }
 
 
