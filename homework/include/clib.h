@@ -26,6 +26,7 @@ typedef unsigned char *byte_pointer;
  ******************************************************************************/
 void itoa(int, char[]);
 void reverse(char[]);
+void ltoa(long, char[]);
 
 
 /*******************************************************************************
@@ -65,6 +66,20 @@ void reverse(char s[])
 		s[i] = s[j];
 		s[j] = temp;
 	}
+}
+
+
+/*******************************************************************************
+ * Function name: ltoa
+ * Description: 
+ * @param s	要反转的字符数组
+ ******************************************************************************/
+void ltoa(long n, char s[])
+{
+	char ctmp[80] = {0};
+	itoa(n, ctmp);
+	itoa(n>>(sizeof(int)<<3), s);
+	strcat(s, ctmp);
 }
 
 
