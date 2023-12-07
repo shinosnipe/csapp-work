@@ -8,7 +8,7 @@ int func2_15(int x, int y)
 
 void testi()
 {
-	FILE *fp = fopen("testi.txt", "r");
+	FILE *fp = fopen("2.15testi.txt", "r");
 	while (!feof(fp))
 	{
 		int x, y;
